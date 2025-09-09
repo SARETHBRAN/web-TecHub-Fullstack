@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecHub - Componentes Tecnológicos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">Tec<span>Hub</span></a>
+            <ul class="nav-menu">
+                <li><a href="#">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#">Productos</a>
+                    <div class="dropdown-content">
+                        <a href="#" class="filter-link" data-category="procesadores">Procesadores</a>
+                        <a href="#" class="filter-link" data-category="graficas">Tarjetas Gráficas</a>
+                        <a href="#" class="filter-link" data-category="ram">Memoria RAM</a>
+                        <a href="#" class="filter-link" data-category="almacenamiento">Almacenamiento</a>
+                        <a href="#" class="filter-link" data-category="gabinetes">Gabinetes</a>
+                        <a href="#" class="filter-link" data-category="placas">Placas Madre</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="search-cart">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar..." id="search-input">
+                </div>
+                <div class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Tus componentes Tech más cool y fiables</h1>
+            <p>Componentes hardware para gamers, creadores y entusiastas que buscan adaptar sus necesidades y presupuesto para dominar cada juego o proyecto</p>
+        </div>
+    </section>
+
+    <!-- Categorías -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Categorías</h2>
+            <div class="categories-grid">
+                <div class="category-card" data-category="procesadores">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Procesadores</h3>
+                    <p>La mejor potencia para tu PC</p>
+                </div>
+                <div class="category-card" data-category="graficas">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Tarjetas de vídeo</h3>
+                    <p>Experiencia visual incomparable</p>
+                </div>
+                <div class="category-card" data-category="ram">
+                    <i class="fas fa-memory"></i>
+                    <h3>Memoria RAM</h3>
+                    <p>Rendimiento fluido en cada tarea</p>
+                </div>
+                <div class="category-card" data-category="almacenamiento">
+                    <i class="fas fa-hdd"></i>
+                    <h3>Unidades de memoria</h3>
+                    <p>Cargas ultrarrápidas y espacio masivo</p>
+                </div>
+                <div class="category-card" data-category="gabinetes">
+                    <i class="fas fa-server"></i>
+                    <h3>Gabinete</h3>
+                    <p>El estilo de tu computadora</p>
+                </div>
+                <div class="category-card" data-category="placas">
+                    <i class="fas fa-puzzle-piece"></i>
+                    <h3>Tarjeta madre</h3>
+                    <p>La base de tu computadora</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Todos los productos -->
+    <section id="featured-products" class="featured">
+        <div class="container">
+            <h2 class="section-title">Todos nuestos productos</h2>
+            <div class="featured-grid" id="featured-grid">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Tienda fiable y respetuosa con sus clientes y productos"</p>
+                    <p class="testimonial-author">- Carlos Rodríguez</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Me llegó en pocos días y bien cuidado"</p>
+                    <p class="testimonial-author">- Ana Martínez</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">TecHub</div>
+            <div class="footer-links">
+                <a href="#">Inicio</a>
+                <a href="#">Categorías</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="copyright">© 2025 TecHub. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-product">
+                <div class="modal-product-image">
+                    <img id="modal-product-img" src="" alt="">
+                </div>
+                <div class="modal-product-details">
+                    <h2 id="modal-product-name"></h2>
+                    <p id="modal-product-description"></p>
+                    <p class="modal-product-price" id="modal-product-price"></p>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" id="decrease-quantity">-</button>
+                        <input type="number" id="product-quantity" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn" id="increase-quantity">+</button>
+                    </div>
+                    <button class="btn" id="add-to-cart-modal">Añadir al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrito de Compras -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="empty-cart" id="empty-cart">
+             <i class="fas fa-shopping-cart" style="font-size: 48px; margin-bottom: 15px;"></i>
+            <p>Tu carrito está vacío</p>
+        </div>
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total">$0.00</span>
+        </div>
+        <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
+    </div>
+
+    <!-- Enlace del archivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
