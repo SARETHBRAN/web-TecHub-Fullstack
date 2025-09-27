@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7.2-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  product-service:
+    build: ./product-service
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+    depends_on:
+      - redis
+
+  cart-service:
+    build: ./cart-service
+    ports:
+      - "3002:3002"
+    environment:
+      - PORT=3002
+    depends_on:
+      - redis
+
+  notification-service:
+    build: ./notification-service
+    ports:
+      - "3003:3003"
+    environment:
+      - PORT=3003
+    depends_on:
+      - redis
+
+volumes:
+  redis_data:
